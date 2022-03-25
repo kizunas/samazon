@@ -127,6 +127,9 @@
               class: "form-control #{ "is-invalid" if resource.errors.messages[:password].present? } samazon-login-input",
               autofocus: "true"
             %>
+            <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %> 文字以上)</em>
+            <% end %><br />
             <% if resource.errors.messages[:password].present? %>
             <span class="samazon-error-message">
               <strong><%= resource.errors.full_messages_for(:password).first %></strong>
