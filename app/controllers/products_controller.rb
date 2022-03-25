@@ -4,6 +4,7 @@ class ProductsController < ApplicationController
   
   def index
      if sort_params.present?
+      @sorted = params[:sort]
       @category = Category.request_category(sort_params[:sort_category])
       @products = Product.sort_products(sort_params, params[:page])
      elsif params[:category].present?

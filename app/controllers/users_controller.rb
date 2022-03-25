@@ -18,11 +18,15 @@ class UsersController < ApplicationController
   
   def update_password
     if password_set?
-      @user.update_password(user_params) 
-      flash[:notice] = "パスワードは正しく更新されました。"
-      redirect_to root_url
+      result = @user.update_password(user_params) 
+      if result
+       flash[:notice] = "パスワードは正しく更新されました。"
+       redirect_to root_url
+      else
+       render "edit_password"
+      end 
     else
-      @user.errors.add(:password, "パスワードに不備があります。")
+      @user.errors.add(:password, "に不備があります。")
       render "edit_password"
     end
   end
