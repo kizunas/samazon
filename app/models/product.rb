@@ -14,9 +14,9 @@ class Product < ApplicationRecord
      display_list(page)
    }
  
-   scope :sort_products, -> (sort_order, page) {
-     on_category(sort_order[:sort_category]).
-     sort_order(sort_order[:sort]).
+   scope :sort_products, -> (sort_add, page) {
+     on_category(sort_add[:sort_category]).
+     sort_order(sort_add[:sort]).
      display_list(page)
    }
   
