@@ -1,5 +1,5 @@
 0 info it worked if it ends with ok
-1 verbose cli [ '/usr/local/heroku/bin/node', '/usr/bin/npm', 'install', 'yarn' ]
+1 verbose cli [ '/usr/local/heroku/bin/node', '/usr/bin/npm', 'install' ]
 2 info using npm@3.10.10
 3 info using node@v12.21.0
 4 silly loadCurrentTree Starting
@@ -10,7 +10,7 @@
 7 verbose stack     at FSReqCallback.oncomplete (fs.js:169:5)
 8 verbose cwd /home/ec2-user/environment/samazon
 9 error Linux 4.14.268-205.500.amzn2.x86_64
-10 error argv "/usr/local/heroku/bin/node" "/usr/bin/npm" "install" "yarn"
+10 error argv "/usr/local/heroku/bin/node" "/usr/bin/npm" "install"
 11 error node v12.21.0
 12 error npm  v3.10.10
 13 error cb.apply is not a function
