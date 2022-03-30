@@ -5,5 +5,5 @@ module ReviewsHelper
      return "★★★" if score == 3
      return "★★" if score == 2
      return "★" if score == 1
-   end
+    end
 end
