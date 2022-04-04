@@ -1,5 +1,21 @@
 Rails.application.routes.draw do
-  get "dashboard", :to => "dashboard#index"
+  devise_for :admins, :controllers => {
+     :sessions => 'admins/sessions'
+   }
+ 
+   devise_scope :admin do
+     get "dashboard", :to => "dashboard#index"
+     get "dashboard/login", :to => "admins/sessions#new"
+     post "dashboard/login", :to => "admins/sessions#create"
+     delete "dashboard/logout", :to => "admins/sessions#destroy"
+   end
+   
+   namespace :dashboard do
+      resources :users, only: [:index, :destroy]
+      resources :major_categories, except: [:new]
+      resources :categories, except: [:new]
+      resources :products, except: [:show]
+   end
   
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',
@@ -30,6 +46,7 @@ Rails.application.routes.draw do
       get "mypage/password", :to => "users#update_password"
       put "mypage/password", :to => "users#update_password"
       get "mypage/favorite", :to => "users#favorite"
+      delete "mypage/delete", :to => "users#destroy"
     end
   end
   
