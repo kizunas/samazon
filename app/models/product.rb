@@ -41,7 +41,7 @@ class Product < ApplicationRecord
   def self.import_csv(file)
      new_products = []
      update_products = []
-     CSV.foreach(file.path, headers: true, encoding: "Shift_JIS:UTF-8") do |row|
+     CSV.foreach(file.path, headers: true) do |row|
        row_to_hash = row.to_hash
        byebug
        if row_to_hash[:id].present?
@@ -71,6 +71,6 @@ class Product < ApplicationRecord
 
    private
      def self.csv_attributes
-       [:name, :description, :price, :recommended_flag, :carriage_flag]
+       [:product_id, :name, :description, :price,:category_id, :recommended_flag, :carriage_flag]
      end
 end
