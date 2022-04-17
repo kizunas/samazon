@@ -64,6 +64,9 @@ gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'mast
 
 # クレジットカード決済機能を導入できる
   gem 'payjp'
+ 
+# Amazon S3にファイルを保存できる
+  gem 'aws-sdk-s3'
   
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

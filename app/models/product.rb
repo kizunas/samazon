@@ -43,9 +43,9 @@ class Product < ApplicationRecord
      update_products = []
      CSV.foreach(file.path, headers: true, encoding: "Shift_JIS:UTF-8") do |row|
        row_to_hash = row.to_hash
-       byebug
-       if row_to_hash[:id].present?
-         update_product = find(id: row_to_hash[:id])
+       
+       if row_to_hash["id"].present?
+         update_product = find_by(id: row_to_hash["id"])
          update_product.attributes = row.to_hash.slice!(csv_attributes)
          update_products << update_product
        else
